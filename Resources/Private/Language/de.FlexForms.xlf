@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-10-29T15:15:40Z" product-name="jwparking">
+		<header/>
+		<body>
+
+			<trans-unit id="sheetGeneral" xml:space="preserve">
+				<source>General</source>
+				<target>Allgemein</target>
+			</trans-unit>
+
+			<trans-unit id="chooseAction" xml:space="preserve">
+				<source>Choose view</source>
+				<target>Ansicht wählen</target>
+			</trans-unit>
+
+			<trans-unit id="show">
+				<source>Show free parkings</source>
+				<target>Zeige freie Parkplätze</target>
+			</trans-unit>
+			<trans-unit id="list">
+				<source>List parkings</source>
+				<target>Auflistung der Parkplätze</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

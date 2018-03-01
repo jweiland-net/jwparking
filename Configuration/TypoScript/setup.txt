@@ -1,0 +1,19 @@
+page.includeJSlibs {
+	jQueryForJwparking = //ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
+	jQueryForJwparking.external = 1
+	jQueryForJwparking.disableCompression = 1
+	jQueryForJwparking.excludeFromConcatenation = 1
+	jQueryForJwparking.if.isTrue = {$page.enableJQueryForJwparking}
+	jwParkingMain = EXT:jwparking/Resources/Public/JavaScript/Main.js
+}
+
+plugin.tx_jwparking {
+	view {
+		templateRootPath = {$plugin.tx_jwparking.view.templateRootPath}
+		partialRootPath = {$plugin.tx_jwparking.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_jwparking.view.layoutRootPath}
+	}
+	settings {
+		pidOfDetailPage = {$plugin.tx_jwparking.settings.pidOfDetailPage}
+	}
+}

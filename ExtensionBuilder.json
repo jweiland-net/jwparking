@@ -1,0 +1,47 @@
+{
+    "modules": [],
+    "properties": {
+        "backendModules": [],
+        "description": "Parking",
+        "emConf": {
+            "category": "plugin",
+            "custom_category": "",
+            "dependsOn": "typo3 => 6.2\n",
+            "disableLocalization": false,
+            "disableVersioning": false,
+            "sourceLanguage": "en",
+            "state": "alpha",
+            "targetVersion": "6.2",
+            "version": "1.0.0"
+        },
+        "extensionKey": "jwparking",
+        "name": "Parking",
+        "originalExtensionKey": "",
+        "persons": [
+            {
+                "company": "jweiland.net",
+                "email": "projects@jweiland.net",
+                "name": "Stefan Froemken",
+                "role": "Developer"
+            }
+        ],
+        "plugins": [
+            {
+                "actions": {
+                    "controllerActionCombinations": "",
+                    "noncacheableActions": "",
+                    "switchableActions": ""
+                },
+                "key": "parking",
+                "name": "Parking"
+            }
+        ],
+        "vendorName": "JWeiland"
+    },
+    "wires": [],
+    "log": {
+        "last_modified": "2014-10-28 02:55",
+        "extension_builder_version": "6.2.0",
+        "be_user": "Stefan Fr\u00f6mken (1)"
+    }
+}

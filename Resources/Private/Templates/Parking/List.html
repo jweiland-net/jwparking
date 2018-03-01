@@ -1,0 +1,68 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+	<script type="text/javascript">
+		var siteUrl = '{siteUrl}';
+		var occupied = '{f:translate(key: "occupied")}';
+		var ajaxRefresh = '{ajaxRefresh}';
+
+		function refreshParking() {
+			jQuery.ajax({
+				type: 'GET',
+				url: siteUrl,
+				dataType: 'json',
+				data: {
+					eID: 'jwparkingGetParkings'
+				}
+			}).done(function(json) {
+				var $freeParkingRow;
+				for (var i = 0; i < json.length; i++) {
+					$freeParkingRow = jQuery("span#freeParking-" + json[i].uid);
+					if ($freeParkingRow.length) {
+						if (json[i].free) {
+							$freeParkingRow.text(json[i].free);
+						} else {
+							$freeParkingRow.text(occupied);
+						}
+					}
+				}
+			}).fail(function(xhr, error) {
+				console.log(error);
+			});
+			setTimeout(function() {
+				refreshParking()
+			}, ajaxRefresh);
+		}
+
+		jQuery(document).ready(function() {
+			refreshParking();
+		});
+	</script>
+
+	<table class="table-striped">
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th><f:translate key="parking" /></th>
+				<th><f:translate key="free" /></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<f:for each="{parkings}" as="parking" key="key">
+				<f:if condition="{0: parking.title}!={0: 'Reserve'}">
+					<tr>
+						<td><span class="parking-blue">P</span></td>
+						<td>
+							<f:if condition="{parking.link}">
+								<f:then><f:link.page pageUid="{parking.link}">{parking.title} ({parking.parkings})</f:link.page></f:then>
+								<f:else>{parking.title} ({parking.parkings})</f:else>
+							</f:if>
+						</td>
+						<td><span id="freeParking-{parking.uid}"></span></td>
+					</tr>
+				</f:if>
+			</f:for>
+		</tbody>
+	</table>
+</f:section>

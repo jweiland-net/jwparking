@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-10-28T14:55:14Z" product-name="jwparking">
+		<header/>
+		<body>
+
+			<trans-unit id="parking" xml:space="preserve">
+				<source>Parking</source>
+				<target>Parkhaus/Platz</target>
+			</trans-unit>
+			<trans-unit id="free" xml:space="preserve">
+				<source>Free</source>
+				<target>Frei</target>
+			</trans-unit>
+			<trans-unit id="occupied" xml:space="preserve">
+				<source>Occupied</source>
+				<target>Belegt</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>

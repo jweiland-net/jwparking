@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-10-29T08:03:00Z" product-name="jwparking">
+		<header/>
+		<body>
+
+			<trans-unit id="filePath" xml:space="preserve">
+				<source>File path: Which file to should be used to display Google Pointers?</source>
+				<target>Dateipfad: Welche Datei enthält die Daten für die Google Marker?</target>
+			</trans-unit>
+			<trans-unit id="ajaxRefresh" xml:space="preserve">
+				<source>Ajax refresh: How many seconds should the ajax call wait to refresh the parkings?</source>
+				<target>Ajax Refresh: Wie viele Sekunden sollen vergehen, bevor die Parkplätze erneut eingelesen werden?</target>
+			</trans-unit>
+			<trans-unit id="parkingTitles" xml:space="preserve">
+				<source>Override titles: If you want to change the title coming from CSV enter a new line here with following format: 5 = new title. Where 5 is the row of CSV beginning from 0. So with our example we override the title of the sixth row in CSV.</source>
+				<target>Titel überschreiben: Wenn Sie den Titel aus der CSV-Datei abändern möchten, dann tragen Sie hier eine neue Zeile in folgendem Format ein: 5 = neuer Titel. Die 5 ist die Zeile aus der CSV-Datei beginnend ab 0. Wir ändern hier also den Titel der 6ten Zeile.</target>
+			</trans-unit>
+			<trans-unit id="parkingLinks" xml:space="preserve">
+				<source>Create links: If you want to add a link for a specific parking you can add a new row here with following format: 5 = 123. Where 5 is the row of CSV beginning from 0. So with our example we set a link to pageUid 123 in row 6.</source>
+				<target>Links erstellen: Wenn Sie einem bestimmten Parkplatz einen Link zuweisen wollen, dann fügen Sie eine neue Zeile in folgendem Format ein:: 5 = 123. Die 5 ist die Zeile aus der CSV-Datei beginnend ab 0. Wir fügen hier also einen neuen Link zu der Seite 123 dem Parkhaus aus der 6ten Zeile hinzu..</target>
+			</trans-unit>
+			<trans-unit id="emailFromAddress" xml:space="preserve">
+				<source>Email of sender: The senders email address. If not given the extension tries to get one from INSTALL_TOOL.</source>
+				<target>E-Mail des Absenders: Die E-Mail-Adresse des Absenders. Wenn keine angegeben wurde, wird versucht die E-Mail-Adresse aus dem Installtool zu nehmen.</target>
+			</trans-unit>
+			<trans-unit id="emailFromName" xml:space="preserve">
+				<source>Name of sender: The senders name. If not given the extension tries to get one from INSTALL_TOOL.</source>
+				<target>Name des Absenders: Der Name des Absenders. Wenn keiner angegeben wurde, wird versucht der Name aus dem Installtool zu nehmen.</target>
+			</trans-unit>
+			<trans-unit id="emailToAddress" xml:space="preserve">
+				<source>Email of receiver: The receivers email address.</source>
+				<target>E-Mail des Empfängers: Die E-Mail-Adresse des Empfängers.</target>
+			</trans-unit>
+			<trans-unit id="emailToName" xml:space="preserve">
+				<source>Name of receiver: The receivers name.</source>
+				<target>Name des Empfängers: Der Name des Empfängers.</target>
+			</trans-unit>
+
+		</body>
+	</file>
+</xliff>
