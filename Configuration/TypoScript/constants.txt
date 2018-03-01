@@ -1,19 +1,19 @@
 page {
-		# cat=plugin.tx_jwparking//a; type=boolean; label=Include JQuery JS library?:Deactivate if JQuery Library was already loaded elsewhere.
-		enableJQueryForJwparking = 1
+  # cat=plugin.tx_jwparking//a; type=boolean; label=Include JQuery JS library?:Deactivate if JQuery Library was already loaded elsewhere.
+  enableJQueryForJwparking = 1
 }
 
 plugin.tx_jwparking {
-	view {
-		# cat=plugin.tx_jwparking/file; type=string; label=Path to template root (FE)
-		templateRootPath = EXT:jwparking/Resources/Private/Templates/
-		# cat=plugin.tx_jwparking/file; type=string; label=Path to template partials (FE)
-		partialRootPath = EXT:jwparking/Resources/Private/Partials/
-		# cat=plugin.tx_jwparking/file; type=string; label=Path to template layouts (FE)
-		layoutRootPath = EXT:jwparking/Resources/Private/Layouts/
-	}
-	settings {
-		# cat=plugin.tx_jwparking//a; type=int+; label=PID of Detail Page
-		pidOfDetailPage =
-	}
+  view {
+    # cat=plugin.tx_jwparking/file; type=string; label=Path to template root (FE)
+    templateRootPath = EXT:jwparking/Resources/Private/Templates/
+    # cat=plugin.tx_jwparking/file; type=string; label=Path to template partials (FE)
+    partialRootPath = EXT:jwparking/Resources/Private/Partials/
+    # cat=plugin.tx_jwparking/file; type=string; label=Path to template layouts (FE)
+    layoutRootPath = EXT:jwparking/Resources/Private/Layouts/
+  }
+  settings {
+    # cat=plugin.tx_jwparking//a; type=int+; label=PID of Detail Page
+    pidOfDetailPage =
+  }
 }

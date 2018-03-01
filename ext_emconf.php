@@ -10,25 +10,25 @@
  * "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array(
-	'title' => 'Parking',
-	'description' => 'Parking',
-	'category' => 'plugin',
-	'author' => ', Stefan Froemken',
-	'author_email' => ', projects@jweiland.net',
-	'state' => 'alpha',
-	'internal' => '',
-	'uploadfolder' => '0',
-	'createDirs' => '',
-	'clearCacheOnLoad' => 0,
-	'version' => '1.1.0',
-	'constraints' => array(
-		'depends' => array(
-			'typo3' => '6.2',
-		),
-		'conflicts' => array(
-		),
-		'suggests' => array(
-		),
-	),
-);
+$EM_CONF[$_EXTKEY] = [
+    'title' => 'Parking',
+    'description' => 'Parking',
+    'category' => 'plugin',
+    'author' => ', Stefan Froemken',
+    'author_email' => ', projects@jweiland.net',
+    'state' => 'alpha',
+    'internal' => '',
+    'uploadfolder' => '0',
+    'createDirs' => '',
+    'clearCacheOnLoad' => 0,
+    'version' => '2.0.0',
+    'constraints' => [
+        'depends' => [
+            'typo3' => '8.7.13-8.99.99',
+        ],
+        'conflicts' => [
+        ],
+        'suggests' => [
+        ],
+    ],
+];
