@@ -1,4 +1,4 @@
-page.includeJSlibs {
+page.includeJSLibs {
   jQueryForJwparking = //ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
   jQueryForJwparking.external = 1
   jQueryForJwparking.disableCompression = 1
