@@ -13,8 +13,10 @@ namespace JWeiland\Jwparking\Tasks;
  *
  * The TYPO3 project - inspiring people to share!
  */
+use JWeiland\Jwparking\Configuration\ExtConf;
 use TYPO3\CMS\Core\Mail\MailMessage;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Scheduler\Task\AbstractTask;
 
 /**
@@ -22,30 +24,6 @@ use TYPO3\CMS\Scheduler\Task\AbstractTask;
  */
 class Mail extends AbstractTask
 {
-
-    /**
-     * @var \JWeiland\Jwparking\Configuration\ExtConf
-     */
-    protected $extConf;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Object\ObjectManager
-     */
-    protected $objectManager;
-
-    /**
-     * constructor of this class
-     */
-    public function __construct()
-    {
-        // first we have to call the parent constructor
-        parent::__construct();
-
-        // initialize some global variables
-        $this->objectManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
-        $this->extConf = $this->objectManager->get(\JWeiland\Jwparking\Configuration\ExtConf::class);
-    }
-
     /**
      * The first method which will be executed when task starts
      *
@@ -53,34 +31,17 @@ class Mail extends AbstractTask
      */
     public function execute()
     {
+        /** @var ObjectManager $objectManager */
+        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        /** @var ExtConf $extConf */
+        $extConf = $objectManager->get(ExtConf::class);
+
         /** @var \TYPO3\CMS\Core\Mail\MailMessage $mail */
         $mail = new MailMessage();
-        $mail->setFrom($this->extConf->getEmailFromAddress(), $this->extConf->getEmailFromName());
-        $mail->setTo($this->extConf->getEmailToAddress(), $this->extConf->getEmailToName());
+        $mail->setFrom($extConf->getEmailFromAddress(), $extConf->getEmailFromName());
+        $mail->setTo($extConf->getEmailToAddress(), $extConf->getEmailToName());
         $mail->setSubject('CSV-Export Jwparking');
-        $mail->attach(\Swift_Attachment::fromPath(PATH_site . $this->extConf->getFilePath()));
+        $mail->attach(\Swift_Attachment::fromPath(PATH_site . $extConf->getFilePath()));
         return (bool)$mail->send();
-    }
-
-
-    /**
-     * scheduler serializes this object so we have to tell unserialize() what to do
-     *
-     * @return void
-     */
-    public function __wakeup()
-    {
-        $this->objectManager = GeneralUtility::makeInstance(\TYPO3\CMS\Extbase\Object\ObjectManager::class);
-        $this->extConf = $this->objectManager->get(\JWeiland\Jwparking\Configuration\ExtConf::class);
-    }
-
-    /**
-     * the result of serialization is too big for db. So we reduce the return value
-     *
-     * @return array
-     */
-    public function __sleep()
-    {
-        return ['scheduler', 'taskUid', 'disabled', 'execution', 'executionTime'];
     }
 }

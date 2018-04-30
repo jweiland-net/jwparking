@@ -21,7 +21,6 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class CsvService implements SingletonInterface
 {
-
     /**
      * @var \JWeiland\Jwparking\Configuration\ExtConf
      */
