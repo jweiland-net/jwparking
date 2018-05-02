@@ -1,4 +1,4 @@
-page.includeJSLibs {
+page.includeJSFooter {
   jQueryForJwparking = //ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js
   jQueryForJwparking.external = 1
   jQueryForJwparking.disableCompression = 1
@@ -9,9 +9,18 @@ page.includeJSLibs {
 
 plugin.tx_jwparking {
   view {
-    templateRootPath = {$plugin.tx_jwparking.view.templateRootPath}
-    partialRootPath = {$plugin.tx_jwparking.view.partialRootPath}
-    layoutRootPath = {$plugin.tx_jwparking.view.layoutRootPath}
+    templateRootPaths {
+      0 = {$plugin.tx_jwparking.view.templateRootPath}
+      10 =
+    }
+    partialRootPaths {
+      0 =  = {$plugin.tx_jwparking.view.partialRootPath}
+      10 =
+    }
+    layoutRootPaths {
+      0 =  = {$plugin.tx_jwparking.view.layoutRootPath}
+      10 =
+    }
   }
   settings {
     pidOfDetailPage = {$plugin.tx_jwparking.settings.pidOfDetailPage}
