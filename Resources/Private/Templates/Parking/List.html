@@ -1,45 +1,7 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-	<script type="text/javascript">
-		var siteUrl = '{siteUrl}';
-		var occupied = '{f:translate(key: "occupied")}';
-		var ajaxRefresh = '{ajaxRefresh}';
-
-		function refreshParking() {
-			jQuery.ajax({
-				type: 'GET',
-				url: siteUrl,
-				dataType: 'json',
-				data: {
-					eID: 'jwparkingGetParkings'
-				}
-			}).done(function(json) {
-				var $freeParkingRow;
-				for (var i = 0; i < json.length; i++) {
-					$freeParkingRow = jQuery("span#freeParking-" + json[i].uid);
-					if ($freeParkingRow.length) {
-						if (json[i].free) {
-							$freeParkingRow.text(json[i].free);
-						} else {
-							$freeParkingRow.text(occupied);
-						}
-					}
-				}
-			}).fail(function(xhr, error) {
-				console.log(error);
-			});
-			setTimeout(function() {
-				refreshParking()
-			}, ajaxRefresh);
-		}
-
-		jQuery(document).ready(function() {
-			refreshParking();
-		});
-	</script>
-
-	<table class="table-striped">
+	<table id="jwGetParking" class="table-striped" data-occupied="{f:translate(key: 'occupied')}" data-ajax-refresh="{ajaxRefresh}">
 		<thead>
 			<tr>
 				<th>&nbsp;</th>
@@ -59,7 +21,7 @@
 								<f:else>{parking.title} ({parking.parkings})</f:else>
 							</f:if>
 						</td>
-						<td><span id="freeParking-{parking.uid}"></span></td>
+						<td><span class="jwGetFreeParking-{parking.uid}"></span></td>
 					</tr>
 				</f:if>
 			</f:for>

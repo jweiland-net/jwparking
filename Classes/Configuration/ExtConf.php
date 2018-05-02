@@ -105,7 +105,9 @@ class ExtConf implements SingletonInterface
     {
         if (empty($this->filePath)) {
             throw new \Exception('You have forgotten to set a file path in extension configuration.');
-        } else return $this->filePath;
+        } else {
+            return $this->filePath;
+        }
     }
 
     /**
@@ -199,7 +201,9 @@ class ExtConf implements SingletonInterface
             if (empty($senderMail)) {
                 throw new \Exception('You have forgotten to set a sender email address in extension configuration or in install tool');
             } else return $senderMail;
-        } else return $this->emailFromAddress;
+        } else {
+            return $this->emailFromAddress;
+        }
     }
 
     /**
@@ -225,8 +229,12 @@ class ExtConf implements SingletonInterface
             $senderName = $GLOBALS['TYPO3_CONF_VARS']['MAIL']['defaultMailFromName'];
             if (empty($senderName)) {
                 throw new \Exception('You have forgotten to set a sender name in extension configuration or in install tool');
-            } else return $senderName;
-        } else return $this->emailFromName;
+            } else {
+                return $senderName;
+            }
+        } else {
+            return $this->emailFromName;
+        }
     }
 
     /**
@@ -250,7 +258,9 @@ class ExtConf implements SingletonInterface
     {
         if (empty($this->emailToAddress)) {
             throw new \Exception('You have forgotten to set an admin email address in extension configuration. This was needed to inform an admin about newly created records.');
-        } else return $this->emailToAddress;
+        } else {
+            return $this->emailToAddress;
+        }
     }
 
     /**
@@ -274,7 +284,9 @@ class ExtConf implements SingletonInterface
     {
         if (empty($this->emailToName)) {
             throw new \Exception('You have forgotten to set an admin name in extension configuration.');
-        } else return $this->emailToName;
+        } else {
+            return $this->emailToName;
+        }
     }
 
     /**

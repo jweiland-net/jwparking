@@ -1,33 +1,6 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-	<script type="text/javascript">
-		var siteUrl = '{siteUrl}';
-		var ajaxRefresh = '{ajaxRefresh}';
-
-		function refreshParking() {
-			jQuery.ajax({
-				type: 'GET',
-				url: siteUrl,
-				dataType: 'json',
-				data: {
-					eID: 'jwparkingGetFreeParking'
-				}
-			}).done(function(freeParking) {
-				jQuery("span#freeParking").text(freeParking);
-			}).fail(function(xhr, error) {
-				console.log(error);
-			});
-			setTimeout(function() {
-				refreshParking()
-			}, ajaxRefresh);
-		}
-
-		jQuery(document).ready(function() {
-			refreshParking();
-		});
-	</script>
-
 	<div class="teaser imagewidth25 bg-color5">
 		<div class="csc-textpic csc-textpic-intext-left-nowrap">
 			<div class="csc-textpic-imagewrap" data-csc-images="1" data-csc-cols="1">
@@ -43,7 +16,7 @@
 					<span class="h3font">
 						<f:link.page pageUid="{settings.pidOfDetailPage}">
 							<span id="pls-start">
-								<span id="freeParking"></span>
+								<span id="jwGetFreeParking" data-ajax-refresh="{ajaxRefresh}"></span>
 							</span>
 						</f:link.page>
 					</span>

@@ -91,7 +91,6 @@ class ParkingController extends ActionController
      */
     public function initializeView(\TYPO3\CMS\Extbase\Mvc\View\ViewInterface $view)
     {
-        $view->assign('siteUrl', GeneralUtility::getIndpEnv('TYPO3_SITE_URL'));
         $view->assign('ajaxRefresh', (int)($this->extConf->getAjaxRefresh() * 1000));
     }
 

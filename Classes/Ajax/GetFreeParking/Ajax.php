@@ -39,7 +39,7 @@ class Ajax extends AbstractAjaxRequest
     /**
      * process ajax request
      *
-     * @return int
+     * @return array
      */
     public function processAjaxRequest()
     {

@@ -65,7 +65,7 @@ class CsvService implements SingletonInterface
         if ($csvData === null || $this->isCsvFileModified()) {
             // get fresh data
             $csvData = [];
-            $lines = @file($this->extConf->getFilePath());
+            $lines = @file(PATH_site . $this->extConf->getFilePath());
             foreach ($lines as $key => $line) {
                 list($title, $parkings, $occupied, $free, $isOpened) = str_getcsv($line, ',');
                 $csvData[] = [
@@ -98,7 +98,9 @@ class CsvService implements SingletonInterface
             $csvData = $this->getCsvData();
             $freeParkings = 0;
             foreach ($csvData as $parking) {
-                $freeParkings += $parking['free'];
+                if (isset($parking['free'])) {
+                    $freeParkings += (int)$parking['free'];
+                }
             }
             $this->sysRegistry->set('JWeiland', 'freeParkings', $freeParkings);
         }
