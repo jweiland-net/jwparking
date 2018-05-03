@@ -14,8 +14,8 @@ if (!defined('TYPO3_MODE')) {
 );
 
 // register eID scripts
-$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['jwparkingGetFreeParking'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('jwparking') . 'Classes/Ajax/GetFreeParking.php';
-$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['jwparkingGetParkings'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('jwparking') . 'Classes/Ajax/GetParkings.php';
+$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['jwParkingGetFreeParking'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('jwparking') . 'Classes/Ajax/GetFreeParking.php';
+$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['jwParkingGetParkings'] = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('jwparking') . 'Classes/Ajax/GetParkings.php';
 
 // add scheduler
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks'][\JWeiland\Jwparking\Tasks\Mail::class] = [

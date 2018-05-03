@@ -1,11 +1,11 @@
 function refreshParking() {
-    var eID = "jwparkingGetParkings";
+    var eID = "jwParkingGetParkings";
     var occupied = "";
     var ajaxRefresh = 0;
     var $jwGetParking = jQuery("#jwGetParking");
     var $jwGetFreeParking = jQuery("#jwGetFreeParking");
     if (!$jwGetParking.length) {
-        eID = "jwparkingGetFreeParking";
+        eID = "jwParkingGetFreeParking";
         ajaxRefresh = $jwGetFreeParking.data("ajaxRefresh");
     } else {
         occupied = $jwGetParking.data("occupied");
