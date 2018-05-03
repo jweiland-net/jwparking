@@ -1,45 +1,47 @@
 function refreshParking() {
-    var eID = "jwParkingGetParkings";
-    var occupied = "";
-    var ajaxRefresh = 0;
-    var $jwGetParking = jQuery("#jwGetParking");
-    var $jwGetFreeParking = jQuery("#jwGetFreeParking");
+    let eID = "jwParkingGetParkings";
+    let occupied = "";
+    let ajaxRefresh = 0;
+    let $jwGetParking = jQuery("#jwGetParking");
+    let $jwGetFreeParking = jQuery("#jwGetFreeParking");
     if (!$jwGetParking.length) {
         eID = "jwParkingGetFreeParking";
-        ajaxRefresh = $jwGetFreeParking.data("ajaxRefresh");
+        ajaxRefresh = parseInt($jwGetFreeParking.data("ajaxRefresh"));
     } else {
         occupied = $jwGetParking.data("occupied");
-        ajaxRefresh = $jwGetParking.data("ajaxRefresh");
+        ajaxRefresh = parseInt($jwGetParking.data("ajaxRefresh"));
     }
 
-    jQuery.ajax({
-        type: "GET",
-        url: "/index.php",
-        dataType: "json",
-        data: {
-            eID: eID
-        }
-    }).done(function(data) {
-        if ($jwGetParking.length) {
-            var $freeParkingRow;
-            for (var i = 0; i < data.length; i++) {
-                $freeParkingRow = jQuery(".jwGetFreeParking-" + data[i].uid);
-                if ($freeParkingRow.length) {
-                    if (data[i].free) {
-                        $freeParkingRow.text(data[i].free);
-                    } else {
-                        $freeParkingRow.text(occupied);
+    if (ajaxRefresh) {
+        jQuery.ajax({
+            type: "GET",
+            url: "/index.php",
+            dataType: "json",
+            data: {
+                eID: eID
+            }
+        }).done(function(data) {
+            if ($jwGetParking.length) {
+                let $freeParkingRow;
+                for (let i = 0; i < data.length; i++) {
+                    $freeParkingRow = jQuery(".jwGetFreeParking-" + data[i].uid);
+                    if ($freeParkingRow.length) {
+                        if (data[i].free) {
+                            $freeParkingRow.text(data[i].free);
+                        } else {
+                            $freeParkingRow.text(occupied);
+                        }
                     }
                 }
+            } else {
+                $jwGetFreeParking.text(data);
             }
-        } else {
-            $jwGetFreeParking.text(data);
-        }
-    }).fail(function(xhr, error) {
-        console.log(error);
-    });
-    setTimeout(function() {
-        refreshParking()
-    }, ajaxRefresh);
+        }).fail(function(xhr, error) {
+            console.log(error);
+        });
+        setTimeout(function() {
+            refreshParking()
+        }, ajaxRefresh);
+    }
 }
 refreshParking();
